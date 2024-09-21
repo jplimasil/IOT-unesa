@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Controle de Acesso - Academia</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Controle de Acesso</h1>
+    <h2>Dados de Uso dos Equipamentos</h2>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Equipamento</th>
+            <th>ID do Usuário</th>
+            <th>Timestamp</th>
+        </tr>
+        {% for usage in usages %}
+        <tr>
+            <td>{{ usage.id }}</td>
+            <td>{{ usage.equipment_id }}</td>
+            <td>{{ usage.user_id }}</td>
+            <td>{{ usage.timestamp }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('logout') }}">Logout</a>
+</body>
+</html>
